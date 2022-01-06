@@ -62,6 +62,7 @@ module.exports = (sequelize) => {
       //or use tableName: 'my_movies_table', to change table name
       // disable plural table names 'freezeTableName: true'
       timestamps: false, // disable timestamps
+      //paranoid: true - enable "soft" deletes, deleteAt value appears
       sequelize, // same as { sequelize: sequelize }
     }
   );

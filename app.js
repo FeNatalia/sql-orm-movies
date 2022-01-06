@@ -78,6 +78,12 @@ const { Op } = db.Sequelize;
     /* READ after UPDATE*/
     const allMovies = await Movie.findAll();
 
+    /*DELETE*/
+    await movieById1.destroy();
+
+    /* READ after DELETE*/
+    const allMovies1 = await Movie.findAll();
+
     console.log(
       "Updated movies: ",
       movieById.get({ plain: true }),
@@ -87,6 +93,11 @@ const { Op } = db.Sequelize;
     console.log(
       "All available movies after updates:",
       allMovies.map((movie) => movie.toJSON())
+    );
+
+    console.log(
+      "all movies after delete of movie id 1 : ",
+      allMovies1.map((movie) => movie.toJSON())
     );
   } catch (error) {
     if (error.name === "SequelizeValidationError") {
